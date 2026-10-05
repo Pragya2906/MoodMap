@@ -17,7 +17,7 @@ Everything is stored in the browser with IndexedDB. No backend, no login, no dat
 
 ## Stack
 
-React + Vite (plain JavaScript, no TypeScript) · Tailwind CSS v4 · IndexedDB
+React (Vite) · Tailwind CSS v4 · IndexedDB
 
 ## Why IndexedDB and not localStorage
 
