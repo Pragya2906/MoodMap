@@ -13,6 +13,8 @@ Built for the ProStackHub Frontend Development Internship (Task 4).
 - Search and filter past entries
 - Insights page with mood averages, distribution, and top tags
 
+- Daily reminder notification (opt-in, only fires if you haven't logged that day)
+
 Everything is stored in the browser with IndexedDB. No backend, no login, no data leaves your device.
 
 ## Stack
@@ -34,6 +36,16 @@ npm run dev
 
 Opens at [https://moodmap-journal.netlify.app/](https://moodmap-journal.netlify.app/)
 
+## Notifications
+
+Reminders are local — there is no push server. Settings are stored in a small IndexedDB database (`moodmap-settings`), shared between the page and the service worker (`src/sw.js`).
+
+- App open: an in-page timer fires at the chosen time.
+- App closed: on Chromium installed PWAs, Periodic Background Sync wakes the service worker (best-effort; the browser decides the timing).
+- iOS: works only after "Add to Home Screen" (iOS 16.4+); no background sync, so reminders show while the app is open.
+
+Test with `npm run build && npm run preview` (the service worker is not active in `npm run dev`).
+
 ## Build
 
 ```bash
@@ -52,5 +64,3 @@ src/
   utils/          date, heatmap grid, streaks, word frequency logic
   App.jsx         nav between the three pages (plain state, no router)
 ```
-
-

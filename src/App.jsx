@@ -9,7 +9,7 @@ export function App() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <SiteHeader view={view} onNavigate={setView} />
+      <SiteHeader currentPage={view} onNavigate={setView} />
       <main className="flex-1">
         {view === "journal" ? <JournalPage /> : null}
         {view === "insights" ? <InsightsPage /> : null}
@@ -19,7 +19,7 @@ export function App() {
         <p className="mx-auto max-w-6xl px-4 text-xs text-muted-foreground sm:px-6">
           MoodMap keeps every entry in this browser only — nothing is uploaded.
         </p>
-      </footer>
+      </footer>n
     </div>
   );
 }
